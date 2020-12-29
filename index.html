@@ -11,7 +11,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="weather-app-wrapper">
         <div class="weather-app">
+            <div class="overview">
     <h1>
         Cleveland
     </h1>
@@ -23,11 +25,16 @@
             Clear
         </li>
     </ul>
+</div>
     <div class="row">
         <div class="col-6">
-            <img src="https://i.pinimg.com/originals/8c/d7/1f/8cd71f668bde9ee32659cfd87614f0b0.png" alt="Clear">
-            12°F | °C
+            <div class="clearfix weather-temperature">
+            <img src="https://i.pinimg.com/originals/8c/d7/1f/8cd71f668bde9ee32659cfd87614f0b0.png" alt="Clear" class="float-left" />
+           <div class="float-left">
+            <strong>12</strong><span class="units">°F | <a href="#" style="text-decoration:none;">°C</a></span>
         </div>
+    </div>
+</div>
         <div class="col-6">
             <ul>
                 <li>
@@ -42,10 +49,11 @@
             </ul>
         </div>
     </div>
-      <small>
-        <a href="https://github.com/hannah22409/weather-app-guided" target="_blank">Open source code</a>, by Hannah Wilson
-    </small>  
     </div>
+    <small>
+        <a href="https://github.com/hannah22409/weather-app-guided" style="text-decoration:none;" target="_blank">Open source code</a>, by Hannah Wilson
+    </small>  
+</div>
     </div>
     <script src="src/app.js"></script>
 </body>
