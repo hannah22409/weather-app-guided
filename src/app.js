@@ -19,10 +19,10 @@ function formatDate(timestamp) {
     let day = days[date.getDay()];
 
     if (hours < 12) {
-        return `${day} ${hours-12}:${minutes+9} AM`
+        return `${day} ${hours-12}:${minutes} AM`
     }
     if (hours > 12) {
-        return `${day} ${hours-12}:${minutes+9} PM`
+        return `${day} ${hours-12}:${minutes} PM`
     }
 }
 
@@ -42,6 +42,7 @@ function displayTemperature(response) {
 }
 
 let apiKey = "19e93f29b7b85bee7efc4d2a5126ad21";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Cleveland&appid=${apiKey}&units=imperial`;
+let city = "Cleveland"
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
