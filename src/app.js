@@ -106,10 +106,30 @@ function displayTemperature(response) {
        }
 }
 
+
 function displayForecast(response) {
     let forecastElement = document.querySelector("#forecast");
     forecastElement.innerHTML = null;
     let forecast = null;
+    var dict = new Map();
+dict.set("01d", "images/clear sky day.png");
+dict.set("01n", "images/clear sky night.png");
+dict.set("02d", "images/few clouds day.png");
+dict.set("02n", "images/few clouds night.png");
+dict.set("03d", "images/clouds.png");
+dict.set("03n", "images/clouds.png");
+dict.set("04d", "images/double clouds.png");
+dict.set("04n", "images/double clouds.png");
+dict.set("09d", "images/heavy rain.png");
+dict.set("09n", "images/heavy rain.png");
+dict.set("10d", "images/rain day.png");
+dict.set("10n", "images/rain night.png");
+dict.set("11d", "images/thunderstorms.png");
+dict.set("11n", "images/thunderstorms.png");
+dict.set("13d", "images/snow.png");
+dict.set("13n", "images/snow.png");
+dict.set("50d", "images/clouds.png");
+dict.set("50n", "images/clouds.png");
   
     for (let index = 0; index < 6; index++) {
       forecast = response.data.list[index];
@@ -119,9 +139,9 @@ function displayForecast(response) {
           ${formatHours(forecast.dt * 1000)}
         </h3>
         <img
-          src="http://openweathermap.org/img/wn/${
-            forecast.weather[0].icon
-          }@2x.png"
+          src="${dict.get(
+            forecast.weather[0].icon)
+          }";
         />
         <div class="weather-forecast-temperature">
           <strong>
