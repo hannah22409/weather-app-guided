@@ -88,6 +88,7 @@ top: -10px;
     display: block;
     margin: 0 auto;
     width: 48px;
+    padding: 5px;
 }
 
 .weather-forecast-temperature {
