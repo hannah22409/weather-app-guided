@@ -17,9 +17,9 @@ function formatDate(timestamp) {
         "Saturday"
       ];
     let day = days[date.getDay()];
-
+    
     if (hours < 12) {
-        return `${day} ${hours-12}:${minutes} AM`
+        return `${day} ${hours+12}:${minutes} AM`
     }
     if (hours > 12) {
         return `${day} ${hours-12}:${minutes} PM`
@@ -27,8 +27,9 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
+    fahrenheitTemperature = response.data.main.temp;
     let temperatureElement=document.querySelector("#temperature");
-    temperatureElement.innerHTML=Math.round(response.data.main.temp);
+    temperatureElement.innerHTML=Math.round(fahrenheitTemperature);
     let cityElement=document.querySelector("#city");
     cityElement.innerHTML=response.data.name;
     let descriptionElement=document.querySelector("#description");
@@ -111,7 +112,34 @@ function handleSubmit(event) {
     search(cityInputElement.value)
 }
 
-search("Cleveland")
+function displayCelciusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    //remove the active class from the fahrenheit link time
+    fahrenheitLink.classList.remove("active")
+    celciusLink.classList.add("active")
+    let celciusTemperature = (fahrenheitTemperature-32) * 5/9;
+    temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    fahrenheitLink.classList.add("active")
+    celciusLink.classList.remove("active")
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+search("Cleveland")

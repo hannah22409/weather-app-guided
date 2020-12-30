@@ -60,3 +60,12 @@ position: relative;
 font-size: 16px;
 top: -10px;
 }
+
+.weather-temperature .active {
+    color:blue;
+    cursor: default;
+}
+
+.weather-temperature .active:hover {
+    text-decoration: none;
+}
