@@ -98,8 +98,20 @@ function displayTemperature(response) {
        }
 }
 
+function search(city){
 let apiKey = "19e93f29b7b85bee7efc4d2a5126ad21";
-let city = "Cleveland"
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
 axios.get(apiUrl).then(displayTemperature);
+}
+
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value)
+}
+
+search("Cleveland")
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
