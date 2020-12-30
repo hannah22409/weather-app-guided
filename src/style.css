@@ -25,6 +25,10 @@ li {
     line-height: 19px;
 }
 
+li i {
+    color: #106dfd;
+}
+
 li:first-letter {
     text-transform: capitalize;
 }
@@ -50,7 +54,7 @@ li:first-letter {
 }
 
 .weather-temperature strong {
-    color: blue;
+    color: #106dfd;
     font-size: 30px;
     font-weight: 100;
 }
@@ -62,7 +66,7 @@ top: -10px;
 }
 
 .weather-temperature .active {
-    color:blue;
+    color:#106dfd;
     cursor: default;
 }
 
