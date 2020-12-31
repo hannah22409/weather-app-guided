@@ -70,6 +70,7 @@ li:first-letter {
     border: 1px solid #f866ad;
     border-radius: 5px;
     box-shadow: 1px 1px 1px #f866ad;
+    background-image: url("https://thumbs.gfycat.com/WhisperedExcellentCollardlizard-size_restricted.gif");
 }
 
 .overview{
@@ -240,7 +241,8 @@ top: -10px;
    }
    .example1 h3 {
     font-size: 20px;
-    color: #106dfd;
+    color: #fddfe9;
+    -webkit-text-stroke: 0.5px #f866ad;
     position: absolute;
     width: 100%;
     height: 100%;
