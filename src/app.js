@@ -200,4 +200,12 @@ celciusLink.addEventListener("click", displayCelciusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
+let musicButton = document.querySelector("#fancyButton");
+musicButton.addEventListener("click", playSong, {once:true});
+
+function playSong() {
+    var audio = new Audio("audio/táEscrito.mp3");
+    audio.play();
+}
+
 search("Cleveland")
