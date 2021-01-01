@@ -92,10 +92,11 @@ li:first-letter {
 position: relative;
 font-size: 16px;
 top: -10px;
+color: #f866ad;
 }
 
 .weather-temperature .active {
-    color:#f866ad;
+    color:#106dfd;
     cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1019.cur), auto !important;
 }
 
