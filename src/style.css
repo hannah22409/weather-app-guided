@@ -1,5 +1,5 @@
 body {
-    font-family: arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 h1 {
@@ -98,13 +98,14 @@ a {
 
 .weather-temperature .units {
 position: relative;
-font-size: 16px;
+font-size: 14px;
 top: -10px;
 color: #f866ad;
 }
 
 .weather-temperature .active {
     color:#106dfd;
+    font-size: 16px;
     cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1019.cur), auto !important;
 }
 
