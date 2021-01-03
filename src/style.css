@@ -83,9 +83,13 @@ li:first-letter {
 }
 
 .weather-temperature strong {
-    color: #e845a9;
+    color: #106dfd;
     font-size: 30px;
     font-weight: 100;
+}
+
+.celciusLink {
+  color: #f866ad;
 }
 
 .weather-temperature .units {
@@ -96,7 +100,7 @@ color: #f866ad;
 }
 
 .weather-temperature .active {
-    color:#e845a9;
+    color:#106dfd;
     cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1019.cur), auto !important;
 }
 
