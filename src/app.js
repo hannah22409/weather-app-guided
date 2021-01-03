@@ -203,7 +203,7 @@ let musicButton = document.querySelector("#fancyButton");
 musicButton.addEventListener("click", playSong, {once:true});
 
 function playSong() {
-    var audio = new Audio("audio/táEscrito.mp3");
+    var audio = new Audio("audio/taEscrito.mp3");
     audio.play();
 }
 
