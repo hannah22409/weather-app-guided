@@ -288,3 +288,13 @@ color: #f866ad;
     transform: translateX(-100%); 
     }
    }
+
+   .form-control {
+    border: 1px solid #106dfd;
+   }
+
+
+
+   .linkGitH {
+     color: #106dfd;
+   }
