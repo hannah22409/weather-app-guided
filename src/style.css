@@ -83,7 +83,7 @@ li:first-letter {
 }
 
 .weather-temperature strong {
-    color: #106dfd;
+    color: #e845a9;
     font-size: 30px;
     font-weight: 100;
 }
@@ -96,7 +96,7 @@ color: #f866ad;
 }
 
 .weather-temperature .active {
-    color:#106dfd;
+    color:#e845a9;
     cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1019.cur), auto !important;
 }
 
