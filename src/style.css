@@ -292,7 +292,11 @@ color: #f866ad;
    .form-control {
     border: 1px solid #106dfd;
    }
-
+   .btn-primary {
+    color: #fff;
+    background-color: #106dfd;
+    border-color: #106dfd;
+}
 
 
    .linkGitH {

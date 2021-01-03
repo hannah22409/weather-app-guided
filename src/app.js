@@ -37,7 +37,7 @@ function displayTemperature(response) {
     let temperatureElement=document.querySelector("#temperature");
     temperatureElement.innerHTML=Math.round(fahrenheitTemperature);
     let cityElement=document.querySelector("#city");
-    cityElement.innerHTML=response.data.name;
+    cityElement.innerHTML=response.data.name +", "+response.data.sys.country;
     let descriptionElement=document.querySelector("#description");
     descriptionElement.innerHTML=response.data.weather[0].description;
     let humidityElement=document.querySelector("#humidity");
