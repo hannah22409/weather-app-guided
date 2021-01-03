@@ -124,13 +124,23 @@ dict.set("50n", "images/clouds.png");
     }
   }
 
+
+// error handler
+function errorHandler(error) {
+    let status = error.response.status;
+  
+    if (status == 404) {
+      alert("Please enter a valid city name🤗")
+  }
+}
+
 function search(city){
 let apiKey = "19e93f29b7b85bee7efc4d2a5126ad21";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayTemperature);
 
 apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
-axios.get(apiUrl).then(displayForecast);
+axios.get(apiUrl).then(displayForecast).catch(errorHandler);
 }
 
 
