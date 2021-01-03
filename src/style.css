@@ -56,6 +56,10 @@ li:first-letter {
     text-transform: capitalize;
 }
 
+a {
+  color: #f866ad;
+}
+
 .container {
     cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1019.cur), auto !important;
 }
