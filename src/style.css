@@ -132,6 +132,10 @@ color: #f866ad;
     margin: 0 auto;
     width: 48px;
     padding: 5px;
+    width:50px;
+    height:50px;
+    /*Scale down will take the necessary specified space that is 100px x 100px without stretching the image*/
+    object-fit:scale-down;
 }
 
 .weather-forecast-temperature {
