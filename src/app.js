@@ -107,28 +107,30 @@ dict.set("13n", "images/snow.png");
 dict.set("50d", "images/clouds.png");
 dict.set("50n", "images/clouds.png");
   
-    for (let index = 0; index < 6; index++) {
-      forecast = response.data.list[index];
-      forecastElement.innerHTML += `
-      <div class="col-2">
-        <h3>
-          ${formatHours(forecast.dt * 1000)}
-        </h3>
-        <img
-          src="${dict.get(
-            forecast.weather[0].icon)
-          }";
-        />
-        <div class="weather-forecast-temperature">
-          <strong id="forecastTempMax">
-            ${Math.round(forecast.main.temp_max)}°
-          </strong id="forecastTempMin">
-          ${Math.round(forecast.main.temp_min)}°
-        </div>
+for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h3>
+        ${formatHours(forecast.dt * 1000)}
+      </h3>
+      <img
+        src="${dict.get(
+          forecast.weather[0].icon)
+        }";
+      />
+      <div class="weather-forecast-temperature">
+        <strong id="forecastTempMax">
+          ${Math.round(forecast.main.temp_max)}°
+        </strong>
+        <span id="forecastTempMin">
+        ${Math.round(forecast.main.temp_min)}°
+        </span>
       </div>
-    `;
-    }
+    </div>
+  `;
   }
+}
 
 
 // error handler
@@ -157,6 +159,7 @@ function handleSubmit(event) {
     search(cityInputElement.value)
 }
 
+
 //temp celcius
 function displayCelciusTemperature(event) {
     event.preventDefault();
@@ -166,6 +169,13 @@ function displayCelciusTemperature(event) {
     celciusLink.classList.add("active")
     let celciusTemperature = (fahrenheitTemperature-32) * 5/9;
     temperatureElement.innerHTML = Math.round(celciusTemperature);
+
+    let forecastTempMaxElement = document.querySelectorAll("#forecastTempMax");
+    forecastTempMaxElement.innerHTML = Math.round(celciusTemperature);
+    let forecastTempMinElement = document.querySelectorAll("#forecastTempMin");
+    forecastTempMinElement.innerHTML = Math.round(celciusTemperature);
+
+
 }
 
 //temp fahrenheit
@@ -175,6 +185,11 @@ function displayFahrenheitTemperature(event) {
     celciusLink.classList.remove("active")
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+    let forecastTempMaxElement = document.querySelectorAll("#forecastTempMax");
+    forecastTempMaxElement.innerHTML = Math.round(fahrenheitTemperature);
+    let forecastTempMinElement = document.querySelectorAll("#forecastTempMin");
+    forecastTempMinElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenheitTemperature = null;
@@ -191,12 +206,21 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let musicButton = document.querySelector("#fancyButton");
-musicButton.addEventListener("click", playSong, {once:true});
+musicButton.addEventListener("click", playSong);
 
 //adding audio to button
+musicButton.addEventListener("click", playSong);
+let isPlaying = false;
+var audio = new Audio("audio/taEscrito.mp3");
+//adding audio to button
 function playSong() {
-    var audio = new Audio("audio/taEscrito.mp3");
+  if (!isPlaying) {
     audio.play();
+    isPlaying = true;
+  } else {
+    audio.pause();
+    isPlaying = false;
+  }
 }
 
 //homepage
