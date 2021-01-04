@@ -1,3 +1,5 @@
+/** functions */
+//get current date
 function formatDate(timestamp) {
     let date = new Date(timestamp);
   
@@ -14,6 +16,7 @@ function formatDate(timestamp) {
     return `${day} ${formatHours(timestamp)}`;
   }
 
+  //format hours
 function formatHours(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -32,6 +35,7 @@ function formatHours(timestamp) {
     }
 }
 
+//display the data from OpenWeatherMap API on HTML
 function displayTemperature(response) {
     fahrenheitTemperature = response.data.main.temp;
     let temperatureElement=document.querySelector("#temperature");
@@ -49,6 +53,8 @@ function displayTemperature(response) {
     let iconElement=document.querySelector("#icon");
     iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt",response.data.weather[0].description);
+
+    //exchange the icons used by OpenWeatherMap for mine (in images folder) for main image of current temp
     if (response.data.weather[0].icon == "01d") {
         iconElement.setAttribute("src","images/clear sky day.png");
     } else if (response.data.weather[0].icon == "01n") {
@@ -76,7 +82,7 @@ function displayTemperature(response) {
        }
 }
 
-
+//format weather icons for 3hr forecast
 function displayForecast(response) {
     let forecastElement = document.querySelector("#forecast");
     forecastElement.innerHTML = null;
@@ -114,9 +120,9 @@ dict.set("50n", "images/clouds.png");
           }";
         />
         <div class="weather-forecast-temperature">
-          <strong>
+          <strong id="forecastTempMax">
             ${Math.round(forecast.main.temp_max)}°
-          </strong>
+          </strong id="forecastTempMin">
           ${Math.round(forecast.main.temp_min)}°
         </div>
       </div>
@@ -134,6 +140,7 @@ function errorHandler(error) {
   }
 }
 
+//weather main
 function search(city){
 let apiKey = "19e93f29b7b85bee7efc4d2a5126ad21";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -143,13 +150,14 @@ apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api
 axios.get(apiUrl).then(displayForecast).catch(errorHandler);
 }
 
-
+//handle the info submit in the button for enter a city
 function handleSubmit(event) {
     event.preventDefault();
     let cityInputElement = document.querySelector("#city-input");
     search(cityInputElement.value)
 }
 
+//temp celcius
 function displayCelciusTemperature(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
@@ -160,6 +168,7 @@ function displayCelciusTemperature(event) {
     temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 
+//temp fahrenheit
 function displayFahrenheitTemperature(event) {
     event.preventDefault();
     fahrenheitLink.classList.add("active")
@@ -170,6 +179,7 @@ function displayFahrenheitTemperature(event) {
 
 let fahrenheitTemperature = null;
 
+//handling all the form/button clicks
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -183,9 +193,11 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let musicButton = document.querySelector("#fancyButton");
 musicButton.addEventListener("click", playSong, {once:true});
 
+//adding audio to button
 function playSong() {
     var audio = new Audio("audio/taEscrito.mp3");
     audio.play();
 }
 
+//homepage
 search("Cleveland")
