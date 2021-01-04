@@ -80,6 +80,11 @@ function displayTemperature(response) {
     } else if (response.data.weather[0].icon == "50d" || response.data.weather[0].icon == "50n") {
         iconElement.setAttribute("src","images/clouds.png");
        }
+
+       fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
+       celciusLink.addEventListener("click", displayCelciusTemperature);
+       fahrenheitLink.classList.add("active");
+       celciusLink.classList.remove("active");
 }
 
 //format weather icons for 3hr forecast
