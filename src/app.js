@@ -114,11 +114,13 @@ for (let index = 0; index < 6; index++) {
       <h3>
         ${formatHours(forecast.dt * 1000)}
       </h3>
+      <span class="forecastImg">
       <img
         src="${dict.get(
           forecast.weather[0].icon)
         }";
       />
+      </span>
       <div class="weather-forecast-temperature">
         <strong id="forecastTempMax">
           ${Math.round(forecast.main.temp_max)}°
@@ -159,7 +161,6 @@ function handleSubmit(event) {
     search(cityInputElement.value)
 }
 
-
 //temp celcius
 function displayCelciusTemperature(event) {
     event.preventDefault();
@@ -171,9 +172,9 @@ function displayCelciusTemperature(event) {
     temperatureElement.innerHTML = Math.round(celciusTemperature);
 
     let forecastTempMaxElement = document.querySelectorAll("#forecastTempMax");
-    forecastTempMaxElement.innerHTML = Math.round(celciusTemperature);
+    forecastTempMaxElement.innerHTML = Math.round((forecastTempMaxElement-32)*5/9);
     let forecastTempMinElement = document.querySelectorAll("#forecastTempMin");
-    forecastTempMinElement.innerHTML = Math.round(celciusTemperature);
+    forecastTempMinElement.innerHTML = Math.round((forecastTempMaxElement-32)*5/9);
 
 
 }
